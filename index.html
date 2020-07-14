@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Add Bootstrap and Bootstrap-Vue CSS to the <head> section -->
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+  <!-- Add Vue and BootstrapVue scripts just before the closing head tag -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+  <title>CostCalc</title>
+</head>
+
+<body>
+  <div id="app">
+    <b-container>
+      <b-jumbotron>
+        <h1>Cost Calculator</h1>
+        <hr>
+        <h2>How It Works</h2>
+        <p>The total cost is calculated by entering adding the price and shipping, minus the discount value.
+          The discount value is calculated by taking the discount value in percentage,
+        which is then multiplied by the price and divided by 100.</p>
+        <!-- labels and fields -->
+        <item label='Price' v-model:value="price"></item>
+        <item label='Shipping' v-model:value="shipping"></item>
+        <item label='Discount (in percentage %)' v-model:value="discount"></item>
+        <hr class="my-4">
+        <p><span>Total Cost: £</span>{{total}}</p>
+      </b-jumbotron>
+    </b-container>
+  </div>
+  <template id="temp">
+    <div>
+      <label>{{label}}</label>
+      <br>
+      <input type="text" v-bind:value="value" v-on:input='send($event.target.value)'/>
+    </div>
+  </template>
+  <script src="app.js"></script>
+  <!--declaring the instance-->
+</body>
+
+</html>
